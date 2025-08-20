@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: "Deployit | DevSecOps Challenge Platform",
   description: "A Series DevSecOps challenges organized by the Mozilla Campus Club of SLIIT.",
   icons: {
-    icon: "./devops.png",
-    shortcut: "./devops.png",
+    icon: "./devops-logo.png",
+    shortcut: "./devops-logo.png",
   },
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/devops.png" />
+  <link rel="icon" href="./devops-logo.ico" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
