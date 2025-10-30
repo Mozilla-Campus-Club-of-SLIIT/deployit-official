@@ -1,4 +1,6 @@
 
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="bg-background-dark font-display text-gray-200">
@@ -33,8 +35,7 @@ export default function Home() {
             <div className="layout-content-container flex flex-col w-full max-w-5xl flex-1">
               <header className="flex items-center justify-between whitespace-nowrap px-4 sm:px-6 py-4 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10">
                 <div className="flex items-center gap-3 text-white">
-                  
-                  <div className="flex items-center gap-2">
+                  <Link href="/" className="flex items-center gap-2" aria-label="Go to home">
                     <img src="/deployit-logo.png" alt="Deployit" className="h-6 sm:h-8" />
                     {/* decorative 'x' separator between logos */}
                     <span className="mx-2 text-gray-300 flex items-center" aria-hidden="true">
@@ -43,17 +44,16 @@ export default function Home() {
                         <path d="M8 8L16 16M16 8L8 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
-                    {/* SLIIT / Mozilla light logo placed to the right of the deployit logo */}
                     <img src="/sliitmozila-light-logo.png" alt="SLIIT Mozilla" className="h-6 sm:h-8 opacity-95" />
-                  </div>
+                  </Link>
                 </div>
 
                 <div className="hidden md:flex flex-1 justify-end items-center gap-8">
                   <nav className="flex items-center gap-6">
+                    <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="/">Home</a>
                     <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">About</a>
-                    <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Challenges</a>
+                    <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="/challenges">Challenges</a>
                     <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Rules</a>
-                   
                   </nav>
                   {/* Login button removed per request */}
                 </div>
@@ -70,13 +70,13 @@ export default function Home() {
                       <img src="/deployit-logo.png" alt="Deployit" className="h-20 md:h-36" />
                     </div>
                     <h2 className="text-gray-300 text-lg md:text-xl font-normal leading-normal">
-                      The DevOps Challenges organized by the Mozilla Campus Club of SLIIT provided a platform for students to tackle real DevOps tasks.
+                      A Series of DevOps challenges organized by the Mozilla Campus Club of SLIIT  for students to tackle real world DevOps tasks.
                     </h2>
                   </div>
                   <div className="mt-6 md:mt-10">
-                    <button className="flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--orange-accent)] text-[var(--background-dark)] text-base font-bold leading-normal tracking-wide hover:brightness-95 transition-colors shadow-lg shadow-[rgba(243,156,18,0.2)]">
+                    <Link href="/challenges" className="flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--orange-accent)] text-[var(--background-dark)] text-base font-bold leading-normal tracking-wide hover:brightness-95 transition-colors shadow-lg shadow-[rgba(243,156,18,0.2)]">
                       <span className="truncate">View Challenges</span>
-                    </button>
+                    </Link>
                   </div>
                 </div>
                
