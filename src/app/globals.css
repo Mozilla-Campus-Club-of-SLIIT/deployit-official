@@ -49,6 +49,44 @@ body {
   z-index: 1;
 }
 
+/* Mobile: reduce or remove heavy decorative backgrounds to avoid overlapping hero content */
+@media (max-width: 640px) {
+  .bg-gradient-custom {
+    /* use a solid dark background on small screens for clarity */
+    background: var(--background-dark) !important;
+  }
+
+  .grainy:before {
+    display: none !important;
+    opacity: 0 !important;
+  }
+
+  /* ensure any large decorative glyphs are hidden when using CSS-only approach */
+  .decorative-glyph,
+  .decorative-mark {
+    display: none !important;
+  }
+}
+
+/* More aggressive hide for tablets/large phones when needed */
+@media (max-width: 1024px) {
+  .decorative-mark {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .bg-gradient-custom {
+    background: var(--background-dark) !important;
+    background-image: none !important;
+  }
+
+  .grainy:before {
+    display: none !important;
+    opacity: 0 !important;
+  }
+}
+
 /* Small helper for the display font family referenced in layout */
 .font-display { font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
 
