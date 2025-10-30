@@ -50,7 +50,7 @@ export default function Home() {
 
                 <div className="hidden md:flex flex-1 justify-end items-center gap-8">
                   <nav className="flex items-center gap-6">
-                    <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="/">Home</a>
+                    <Link href="/" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Home</Link>
                     <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">About</a>
                     <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="/challenges">Challenges</a>
                     <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Rules</a>
