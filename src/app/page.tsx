@@ -70,7 +70,7 @@ export default function Home() {
                       <img src="/deployit-logo.png" alt="Deployit" className="h-20 md:h-36" />
                     </div>
                     <h2 className="text-gray-300 text-lg md:text-xl font-normal leading-normal">
-                      A Series of DevOps challenges organized by the Mozilla Campus Club of SLIIT  for students to tackle real world DevOps tasks.
+                      A Series of DevOps challenges where students can tackle real-world DevOps tasks and win exciting prizes.
                     </h2>
                   </div>
                   <div className="mt-6 md:mt-10">
