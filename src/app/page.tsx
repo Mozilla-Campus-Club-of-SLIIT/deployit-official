@@ -50,13 +50,13 @@ export default function Home() {
                       A Series of DevOps challenges where students can tackle real-world DevOps tasks and win exciting prizes.
                     </h2>
                   </div>
-                    <div className="mt-6 md:mt-10">
-                    <Link href="/challenges" className="flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--orange-accent)] text-[var(--background-dark)] text-base font-bold leading-normal tracking-wide hover:brightness-95 transition-colors shadow-lg shadow-[rgba(243,156,18,0.2)]">
+                  <div className="mt-6 md:mt-10">
+                    <Link href="https://portal.deployit.sliitmozilla.org" target="_blank" rel="noopener noreferrer" className="flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--orange-accent)] text-[var(--background-dark)] text-base font-bold leading-normal tracking-wide hover:brightness-95 transition-colors shadow-lg shadow-[rgba(243,156,18,0.2)]">
                       <span className="truncate">View Challenges</span>
                     </Link>
                   </div>
                 </div>
-               
+
               </main>
             </div>
           </div>

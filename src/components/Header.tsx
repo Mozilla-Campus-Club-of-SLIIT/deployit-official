@@ -25,9 +25,10 @@ export default function Header() {
         <nav className="hidden md:flex flex-1 justify-end items-center gap-8">
           <div className="flex items-center gap-6">
             <Link href="/" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Home</Link>
-            <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">About</a>
+            <Link href="/about" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">About</Link>
             <Link href="/challenges" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Challenges</Link>
-            <a className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Rules</a>
+            <Link href="/leaderboard" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Leaderboard</Link>
+            <Link href="https://portal.deployit.sliitmozilla.org/" target="_blank" rel="noopener noreferrer" className="ml-4 px-4 py-2 bg-yellow-400 text-black text-xs font-black uppercase tracking-widest rounded-lg hover:bg-yellow-300 transition-all shadow-lg shadow-yellow-400/10">Register</Link>
           </div>
         </nav>
 
@@ -45,11 +46,12 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div className={`md:hidden mt-2 ${open ? 'block' : 'hidden'}`}>
-        <div className="flex flex-col gap-2 px-3">
-          <Link href="/" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md">Home</Link>
-          <a href="#" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md">About</a>
-          <Link href="/challenges" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md">Challenges</Link>
-          <a href="#" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md">Rules</a>
+        <div className="flex flex-col gap-2 px-3 border border-white/5 rounded-xl bg-black/40 backdrop-blur-xl py-4 shadow-2xl animate-in slide-in-from-top-4 duration-300">
+          <Link href="/" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">Home</Link>
+          <Link href="/about" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">About</Link>
+          <Link href="/challenges" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">Challenges</Link>
+          <Link href="/leaderboard" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">Leaderboard</Link>
+          <Link href="https://portal.deployit.sliitmozilla.org/" target="_blank" rel="noopener noreferrer" className="block text-yellow-400 font-black px-3 py-2 rounded-md bg-yellow-400/5 mt-2">Register →</Link>
         </div>
       </div>
     </header>
