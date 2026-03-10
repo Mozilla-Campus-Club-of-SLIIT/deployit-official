@@ -74,6 +74,16 @@ export default function LeaderboardPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    const ITEMS_PER_PAGE = 10;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const totalPages = Math.ceil(leaderboard.length / ITEMS_PER_PAGE);
+
+    const pagedLeaderboard = React.useMemo(() => {
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        return leaderboard.slice(start, start + ITEMS_PER_PAGE);
+    }, [leaderboard, currentPage]);
+
     useEffect(() => {
         const fetchLeaderboard = async () => {
             try {
@@ -83,7 +93,7 @@ export default function LeaderboardPage() {
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    setLeaderboard(data || []);
+                    setLeaderboard((data || []).filter((u: any) => u.totalScore > 0));
                 } else {
                     setError("Synchronization failed.");
                 }
@@ -142,14 +152,16 @@ export default function LeaderboardPage() {
                                         </td>
                                     </tr>
                                 ) : (
-                                    leaderboard.map((user, index) => {
-                                        const rank = RANK_STYLE[index];
+                                    pagedLeaderboard.map((user, idx) => {
+                                        const globalIndex = (currentPage - 1) * ITEMS_PER_PAGE + idx;
+                                        const rank = RANK_STYLE[globalIndex];
+                                        const isTop3 = globalIndex < 3;
                                         return (
                                             <tr
                                                 key={user.id}
                                                 className="group hover:bg-white/5 transition-colors duration-200"
                                                 style={{
-                                                    background: index < 3 ? `rgba(245,158,11,${0.03 - index * 0.01})` : undefined,
+                                                    background: isTop3 ? `rgba(245,158,11,${0.03 - globalIndex * 0.01})` : undefined,
                                                 }}
                                             >
                                                 {/* Rank */}
@@ -158,7 +170,7 @@ export default function LeaderboardPage() {
                                                         className={`flex h-9 w-9 items-center justify-center rounded-lg text-sm font-black shadow-inner
                                                             ${rank ? `${rank.bg} ${rank.text}` : "bg-white/5 text-gray-400"}`}
                                                     >
-                                                        {rank ? rank.label : index + 1}
+                                                        {rank ? rank.label : globalIndex + 1}
                                                     </span>
                                                 </td>
 
@@ -198,7 +210,33 @@ export default function LeaderboardPage() {
                     </div>
                 </div>
 
-                <div className="mt-8 text-center text-gray-500 text-xs font-medium uppercase tracking-[0.2em] opacity-50">
+                {!loading && leaderboard.length > 0 && (
+                    <div className="flex justify-center items-center gap-6 mt-8">
+                        <button
+                            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                            disabled={currentPage === 1}
+                            className={`px-5 py-2.5 rounded-lg border border-white/10 bg-black/20 text-sm font-bold transition-all duration-200 ${
+                                currentPage === 1 ? 'text-slate-600 cursor-not-allowed' : 'text-slate-200 hover:bg-white/5 cursor-pointer'
+                            }`}
+                        >
+                            ← Prev
+                        </button>
+                        <span className="text-slate-400 text-sm font-semibold">
+                            Page {currentPage} of {totalPages}
+                        </span>
+                        <button
+                            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                            disabled={currentPage === totalPages}
+                            className={`px-5 py-2.5 rounded-lg border border-white/10 bg-black/20 text-sm font-bold transition-all duration-200 ${
+                                currentPage === totalPages ? 'text-slate-600 cursor-not-allowed' : 'text-slate-200 hover:bg-white/5 cursor-pointer'
+                            }`}
+                        >
+                            Next →
+                        </button>
+                    </div>
+                )}
+
+                <div className="mt-12 text-center text-gray-500 text-xs font-medium uppercase tracking-[0.2em] opacity-50">
                     &copy; 2026 DEPLOY(IT)
                 </div>
             </div>
