@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import features from "../config/features.json";
 
 export default function Header() {
@@ -12,14 +13,26 @@ export default function Header() {
       <div className="flex items-center justify-between whitespace-nowrap px-4 sm:px-6 py-4 bg-black/20 backdrop-blur-sm rounded-xl border border-white/10">
         <div className="flex items-center gap-3 text-white">
           <Link href="/" className="flex items-center gap-2" aria-label="Go to home">
-            <img src="/deployit-logo.png" alt="Deployit" className="h-6 sm:h-8" />
+            <Image 
+              src="/deployit-logo.png" 
+              alt="Deployit" 
+              width={120} 
+              height={32} 
+              className="h-6 sm:h-8 w-auto" 
+            />
             <span className="mx-2 text-gray-300 flex items-center" aria-hidden="true">
               <svg className="w-4 h-4 text-gray-300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="0.8" opacity="0.12" />
                 <path d="M8 8L16 16M16 8L8 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-            <img src="/sliitmozila-light-logo.png" alt="SLIIT Mozilla" className="h-6 sm:h-8 opacity-95" />
+            <Image 
+              src="/sliitmozila-light-logo.png" 
+              alt="SLIIT Mozilla" 
+              width={120} 
+              height={32} 
+              className="h-6 sm:h-8 w-auto opacity-95" 
+            />
           </Link>
         </div>
 

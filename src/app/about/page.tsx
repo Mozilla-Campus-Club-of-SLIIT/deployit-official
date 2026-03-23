@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import Header from '../../components/Header';
 import features from "../../config/features.json";
 
@@ -19,7 +20,7 @@ export default function AboutPage() {
                         <span className="text-yellow-400">INTERFACE</span>
                     </h1>
                     <p className="mt-8 text-gray-400 text-lg sm:text-2xl font-medium max-w-3xl mx-auto leading-relaxed opacity-80">
-                        We don't just teach DevOps; we forge the next generation of cloud commandos through trial by fire.
+                        We don&apos;t just teach DevOps; we forge the next generation of cloud commandos through trial by fire.
                     </p>
                 </div>
 
@@ -48,7 +49,7 @@ export default function AboutPage() {
                             
                             <h2 className="mb-4 text-2xl font-black uppercase tracking-tight text-white">The Vision</h2>
                             <p className="text-lg leading-relaxed text-gray-400">
-                                To establish SLIIT as a powerhouse for DevOps talent, creating a culture where automation, scaling, and observability are first-class citizens in every student's engineering arsenal.
+                                To establish SLIIT as a powerhouse for DevOps talent, creating a culture where automation, scaling, and observability are first-class citizens in every student&apos;s engineering arsenal.
                             </p>
                         </section>
                     </div>
@@ -87,11 +88,16 @@ export default function AboutPage() {
                             
                             <div className="rounded-2xl border border-white/5 bg-black/40 p-8 shadow-2xl">
                                 <p className="text-2xl font-black italic leading-tight text-white opacity-90 leading-relaxed">
-                                    "Whether you're a Software Engineering fanatic, a Cybersecurity enthusiast, or just curious about how the cloud works—this series is for you."
+                                    &quot;Whether you&apos;re a Software Engineering fanatic, a Cybersecurity enthusiast, or just curious about how the cloud works—this series is for you.&quot;
                                 </p>
                                 <div className="mt-8 flex items-center gap-4">
                                     <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-yellow-400/50 shadow-lg shadow-yellow-400/10">
-                                        <img src="/sadeesha.png" alt="Sadeesha Perera" className="h-full w-full object-cover" />
+                                        <Image 
+                                            src="/sadeesha.png" 
+                                            alt="Sadeesha Perera" 
+                                            fill 
+                                            className="object-cover" 
+                                        />
                                     </div>
                                     <div>
                                         <div className="text-sm font-black uppercase tracking-widest text-white">Sadeesha Perera</div>

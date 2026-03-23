@@ -69,8 +69,16 @@ function Avatar({ photoUrl, displayName, size = 40 }: { photoUrl?: string; displ
     );
 }
 
+interface LeaderboardEntry {
+    id: string;
+    photoUrl?: string;
+    displayName: string;
+    totalScore: number;
+    role?: string;
+}
+
 export default function LeaderboardPage() {
-    const [leaderboard, setLeaderboard] = useState<any[]>([]);
+    const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -93,7 +101,7 @@ export default function LeaderboardPage() {
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    setLeaderboard((data || []).filter((u: any) => u.totalScore > 0));
+                    setLeaderboard((data || []).filter((u: LeaderboardEntry) => u.totalScore > 0));
                 } else {
                     setError("Synchronization failed.");
                 }

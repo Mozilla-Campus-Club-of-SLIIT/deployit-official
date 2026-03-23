@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Header from "../components/Header";
 import features from "../config/features.json";
 
@@ -44,7 +45,14 @@ export default function Home() {
                 <div className="flex flex-col items-center justify-center text-center py-28 md:py-20 px-4">
                   <div className="flex flex-col gap-6 md:gap-8 max-w-3xl">
                     <div className="flex justify-center">
-                      <img src="/deployit-logo.png" alt="Deployit" className="h-20 md:h-36" />
+                      <Image 
+                        src="/deployit-logo.png" 
+                        alt="Deployit" 
+                        width={400} 
+                        height={150} 
+                        className="h-20 md:h-36 w-auto" 
+                        priority
+                      />
                     </div>
                     <h2 className="text-gray-300 text-lg md:text-xl font-normal leading-normal">
                       A Series of DevOps challenges where students can tackle real-world DevOps tasks and win exciting prizes.

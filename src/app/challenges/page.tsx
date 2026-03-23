@@ -1,9 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '../../components/Header';
-
-// Use 127.0.0.1 to avoid potential IPv6 resolution delays with 'localhost'
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8080";
 
 export default function ChallengesPage() {
   const comingSoonChallenges = [
@@ -77,7 +75,13 @@ export default function ChallengesPage() {
           {comingSoonChallenges.map((c) => (
             <article key={c.id} className="group relative rounded-2xl bg-black/20 border border-white/5 p-0 overflow-hidden hover:border-white/10 transition-all duration-300">
               <div className="h-48 bg-white/2 flex items-center justify-center border-b border-white/5 grayscale group-hover:grayscale-0 transition-all duration-500">
-                <img src={`/challenges/${c.id}.svg`} alt={`${c.title} illustration`} className="h-24 w-auto object-contain opacity-30 group-hover:opacity-50" />
+                <Image 
+                  src={`/challenges/${c.id}.svg`} 
+                  alt={`${c.title} illustration`} 
+                  width={150} 
+                  height={100} 
+                  className="h-24 w-auto object-contain opacity-30 group-hover:opacity-50" 
+                />
               </div>
               <div className="p-8">
                 <div className="flex items-start justify-between gap-4 mb-4">
