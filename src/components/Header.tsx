@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import features from "../config/features.json";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -27,8 +28,14 @@ export default function Header() {
             <Link href="/" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Home</Link>
             <Link href="/about" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">About</Link>
             <Link href="/challenges" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Challenges</Link>
-            <Link href="/leaderboard" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Leaderboard</Link>
-            <Link href="https://portal.deployit.sliitmozilla.org/" target="_blank" rel="noopener noreferrer" className="ml-4 px-4 py-2 bg-yellow-400 text-black text-xs font-black uppercase tracking-widest rounded-lg hover:bg-yellow-300 transition-all shadow-lg shadow-yellow-400/10">Register</Link>
+            {features.showLeaderboard && (
+              <Link href="/leaderboard" className="text-gray-300 hover:text-white text-sm font-medium leading-normal transition-colors">Leaderboard</Link>
+            )}
+            {features.registrationOpen ? (
+              <Link href="https://portal.deployit.sliitmozilla.org/" target="_blank" rel="noopener noreferrer" className="ml-4 px-4 py-2 bg-yellow-400 text-black text-xs font-black uppercase tracking-widest rounded-lg hover:bg-yellow-300 transition-all shadow-lg shadow-yellow-400/10">Register</Link>
+            ) : (
+              <span className="ml-4 px-4 py-2 bg-white/5 text-gray-500 text-xs font-black uppercase tracking-widest rounded-lg border border-white/10 opacity-70">Opening Soon</span>
+            )}
           </div>
         </nav>
 
@@ -50,8 +57,14 @@ export default function Header() {
           <Link href="/" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">Home</Link>
           <Link href="/about" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">About</Link>
           <Link href="/challenges" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">Challenges</Link>
-          <Link href="/leaderboard" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">Leaderboard</Link>
-          <Link href="https://portal.deployit.sliitmozilla.org/" target="_blank" rel="noopener noreferrer" className="block text-yellow-400 font-black px-3 py-2 rounded-md bg-yellow-400/5 mt-2">Register →</Link>
+          {features.showLeaderboard && (
+            <Link href="/leaderboard" className="block text-gray-300 hover:text-white px-3 py-2 rounded-md hover:bg-white/5">Leaderboard</Link>
+          )}
+          {features.registrationOpen ? (
+            <Link href="https://portal.deployit.sliitmozilla.org/" target="_blank" rel="noopener noreferrer" className="block text-yellow-400 font-black px-3 py-2 rounded-md bg-yellow-400/5 mt-2">Register →</Link>
+          ) : (
+            <span className="block text-gray-600 font-black px-3 py-2 rounded-md bg-white/5 mt-2 opacity-50 italic">Opening Soon</span>
+          )}
         </div>
       </div>
     </header>

@@ -1,6 +1,6 @@
-
 import Link from "next/link";
 import Header from "../components/Header";
+import features from "../config/features.json";
 
 export default function Home() {
   return (
@@ -51,9 +51,15 @@ export default function Home() {
                     </h2>
                   </div>
                   <div className="mt-6 md:mt-10">
-                    <Link href="https://portal.deployit.sliitmozilla.org" target="_blank" rel="noopener noreferrer" className="flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--orange-accent)] text-[var(--background-dark)] text-base font-bold leading-normal tracking-wide hover:brightness-95 transition-colors shadow-lg shadow-[rgba(243,156,18,0.2)]">
-                      <span className="truncate">View Challenges</span>
-                    </Link>
+                    {features.registrationOpen ? (
+                      <Link href="https://portal.deployit.sliitmozilla.org" target="_blank" rel="noopener noreferrer" className="flex min-w-[84px] w-full sm:w-auto max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--orange-accent)] text-[var(--background-dark)] text-base font-bold leading-normal tracking-wide hover:brightness-95 transition-colors shadow-lg shadow-[rgba(243,156,18,0.2)]">
+                        <span className="truncate">View Challenges</span>
+                      </Link>
+                    ) : (
+                      <div className="flex min-w-[84px] w-full sm:w-auto max-w-[480px] items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white/5 border border-white/10 text-gray-500 text-base font-black uppercase tracking-[0.2em] opacity-60 cursor-default backdrop-blur-sm">
+                        Registration Opening Soon
+                      </div>
+                    )}
                   </div>
                 </div>
 
